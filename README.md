@@ -1,73 +1,70 @@
-# Welcome to your Lovable project
+# AI-Powered Dyslexic Learner Support App
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/5a4bcc94-cb97-408d-b52c-50ae8723cadb
+This project is a **web-based application** designed to support dyslexic learners by leveraging AI and NLP technologies. The app provides a dyslexia-friendly interface to help users read, write, and learn more effectively through personalized, adaptive features. Key capabilities include text-to-speech, speech-to-text, AI-based text simplification, a friendly conversational chatbot, and adaptive quizzes.
 
-## How can I edit this code?
+***
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Text-to-Speech (TTS):** Converts text input into clear, slow-paced audio tailored for dyslexic learners.
+- **Speech-to-Text (STT):** Allows users to dictate answers and notes which are transcribed into editable text.
+- **Text Simplification:** Uses AI to rewrite complex text into simpler, easy-to-understand language along with keyword highlighting.
+- **Conversational Chatbot:** An empathetic AI chatbot helps with learning guidance, encouragement, and interaction.
+- **Adaptive Quiz System:** Generates quizzes from learning content with difficulty adjusting based on user performance.
+- **Progress Dashboard:** Visualizes learner progress with personalized recommendations and motivational feedback.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5a4bcc94-cb97-408d-b52c-50ae8723cadb) and start prompting.
+***
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- **Frontend:** ReactJS / Streamlit  
+- **Backend:** FastAPI / Flask  
+- **AI & NLP:** Hugging Face Transformers, OpenAI GPT, Google Cloud Text-to-Speech & Speech-to-Text APIs  
+- **Database:** SQLite / Firebase  
+- **Deployment:** Heroku / Render / Vercel / Netlify  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+***
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Installation & Setup
 
-Follow these steps:
+1. Clone the repository  
+2. Create and activate a Python virtual environment  
+   ```
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   .\venv\Scripts\activate   # Windows
+   ```
+3. Install backend dependencies  
+   ```
+   pip install -r backend/requirements.txt
+   ```
+4. Install frontend dependencies (if using React)  
+   ```
+   cd frontend
+   npm install
+   ```
+5. Configure environment variables (.env file)  
+   - API keys for Google Cloud, OpenAI, etc.  
+6. Run backend server  
+   ```
+   uvicorn backend.app:app --reload
+   ```
+7. Run frontend app  
+   - React: `npm start`  
+   - Streamlit: `streamlit run frontend/app.py`  
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+***
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Usage
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Open the app URL in a web browser  
+- Paste or upload text for reading or simplification  
+- Use the microphone to dictate notes or answers  
+- Interact with the chatbot for help and encouragement  
+- Take adaptive quizzes and view progress on the dashboard  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5a4bcc94-cb97-408d-b52c-50ae8723cadb) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This README gives a clear, concise summary of the project, setup instructions, and usage guidance for developers and users engaged with the AI-powered dyslexic learner support app.
