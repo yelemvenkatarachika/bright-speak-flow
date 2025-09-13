@@ -6,66 +6,76 @@
 
 @layer base {
   :root {
-    /* Accessible high-contrast colors */
-    --background: 210 17% 98%;
-    --foreground: 215 25% 27%;
+    /* Dyslexia-friendly color palette */
+    --background: 60 9% 98%; /* #FAF9F6 cream background */
+    --foreground: 0 0% 17%; /* #2B2B2B charcoal text */
     
-    /* Learning-focused primary colors */
-    --primary: 213 94% 68%;
+    /* Primary action colors */
+    --primary: 213 79% 46%; /* #1C6DD0 blue for buttons/links */
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 213 94% 85%;
+    --primary-hover: 213 79% 36%; /* #145B9E darker blue on hover */
+    --primary-soft: 213 79% 85%;
     
     /* Success and encouragement colors */
-    --success: 142 71% 45%;
+    --success: 120 61% 50%; /* #4BB543 friendly green */
     --success-foreground: 0 0% 100%;
-    --success-soft: 142 71% 85%;
+    --success-soft: 120 61% 85%;
     
-    /* Calm secondary colors */
-    --secondary: 210 17% 95%;
-    --secondary-foreground: 215 25% 27%;
+    /* Error colors */
+    --error: 354 70% 54%; /* #D9534F muted red */
+    --error-foreground: 0 0% 100%;
+    --error-soft: 354 70% 85%;
+    
+    /* Secondary colors */
+    --secondary: 60 9% 95%;
+    --secondary-foreground: 0 0% 33%; /* #545454 gray for secondary text */
     
     /* Card and surface colors */
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 27%;
+    --card-foreground: 0 0% 17%;
     
     /* Interactive elements */
-    --muted: 210 17% 93%;
-    --muted-foreground: 215 25% 45%;
+    --muted: 60 9% 93%;
+    --muted-foreground: 0 0% 33%;
     
-    --accent: 213 94% 68%;
+    --accent: 213 79% 46%;
     --accent-foreground: 0 0% 100%;
     
     /* Input and form elements */
-    --input: 210 17% 93%;
-    --border: 210 17% 87%;
-    --ring: 213 94% 68%;
+    --input: 60 9% 96%;
+    --border: 60 9% 90%;
+    --ring: 213 79% 46%;
     
     /* Alert colors */
-    --destructive: 0 65% 51%;
+    --destructive: 354 70% 54%;
     --destructive-foreground: 0 0% 100%;
     
     /* Spacing and borders */
     --radius: 0.75rem;
     
-    /* Learning gradients */
+    /* Dyslexia-friendly gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-soft)));
     --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--success-soft)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(60 9% 98%));
     
-    /* Learning shadows */
+    /* Accessible shadows */
     --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.15);
-    --shadow-card: 0 2px 10px -2px hsl(215 25% 27% / 0.08);
+    --shadow-card: 0 2px 12px -2px hsl(0 0% 17% / 0.08);
+    --shadow-button: 0 2px 8px -2px hsl(var(--primary) / 0.2);
   }
 
   .dark {
-    --background: 215 25% 27%;
-    --foreground: 210 17% 98%;
-    --primary: 213 94% 78%;
-    --primary-soft: 213 94% 65%;
-    --card: 215 25% 23%;
-    --secondary: 215 25% 20%;
-    --muted: 215 25% 18%;
-    --input: 215 25% 18%;
-    --border: 215 25% 35%;
+    /* Dark mode with gentle contrast */
+    --background: 0 0% 7%; /* #121212 gentle dark gray */
+    --foreground: 0 0% 87%; /* #DEDEDE off-white text */
+    --primary: 213 79% 56%;
+    --primary-hover: 213 79% 46%;
+    --primary-soft: 213 79% 75%;
+    --card: 0 0% 12%;
+    --secondary: 0 0% 10%;
+    --muted: 0 0% 8%;
+    --input: 0 0% 8%;
+    --border: 0 0% 25%;
   }
 }
 
@@ -76,37 +86,76 @@
   
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: 'Lexend', 'OpenDyslexic', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-    letter-spacing: 0.02em;
+    font-size: 18px; /* Minimum 18px base size */
+    letter-spacing: 0.05em; /* Increased letter spacing */
     line-height: 1.6;
   }
   
   /* Dyslexia-friendly typography */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.05em;
     line-height: 1.4;
+    /* Avoid italics, underlines */
   }
   
   p {
     line-height: 1.7;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
+    text-align: left; /* Always left-align for natural reading */
+  }
+  
+  /* Avoid problematic text styles */
+  em, i {
+    font-style: normal;
+    font-weight: 600;
+  }
+  
+  /* Large clickable areas */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
 @layer components {
-  /* Learning-focused button variants */
-  .btn-learning {
-    @apply bg-gradient-to-r from-primary to-primary-soft text-primary-foreground hover:shadow-lg transition-all duration-300;
+  /* Dyslexia-friendly button variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover shadow-button transition-all duration-300 rounded-lg px-6 py-3 font-medium;
   }
   
   .btn-success {
-    @apply bg-gradient-to-r from-success to-success-soft text-success-foreground hover:shadow-lg transition-all duration-300;
+    @apply bg-success text-success-foreground hover:opacity-90 shadow-button transition-all duration-300 rounded-lg px-6 py-3 font-medium;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 shadow-card transition-all duration-300 rounded-lg px-6 py-3 font-medium;
   }
   
   /* Accessible focus styles */
-  .focus-learning {
-    @apply focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none;
+  .focus-dyslexic {
+    @apply focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 focus:outline-none transition-all duration-200;
+  }
+  
+  /* Card styles */
+  .card-dyslexic {
+    @apply bg-card text-card-foreground rounded-xl shadow-card border border-border/50 p-6;
+  }
+  
+  /* Input styles */
+  .input-dyslexic {
+    @apply bg-input text-foreground border border-border rounded-lg px-4 py-3 text-lg focus-dyslexic;
+  }
+  
+  /* Navigation styles */
+  .nav-item {
+    @apply px-4 py-2 rounded-lg hover:bg-muted transition-colors duration-200 font-medium;
+  }
+  
+  .nav-item-active {
+    @apply bg-primary/10 text-primary border border-primary/20;
   }
 }
 
@@ -117,9 +166,32 @@
     line-height: 1.8;
   }
   
+  /* Reading-friendly text */
+  .text-readable {
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    word-spacing: 0.1em;
+  }
+  
   /* High contrast mode */
   .high-contrast {
     @apply text-foreground bg-background;
     filter: contrast(1.2);
+  }
+  
+  /* Gentle animations */
+  .animate-gentle {
+    animation: gentle-bounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  /* Safe zone for content */
+  .content-safe {
+    max-width: 65ch; /* Optimal reading width */
+    margin: 0 auto;
   }
 }

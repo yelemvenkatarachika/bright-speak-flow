@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
           soft: "hsl(var(--primary-soft))",
         },
         secondary: {
@@ -32,6 +33,11 @@ export default {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",
           soft: "hsl(var(--success-soft))",
+        },
+        error: {
+          DEFAULT: "hsl(var(--error))",
+          foreground: "hsl(var(--error-foreground))",
+          soft: "hsl(var(--error-soft))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -53,10 +59,24 @@ export default {
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',
         'gradient-success': 'var(--gradient-success)',
+        'gradient-card': 'var(--gradient-card)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'card': 'var(--shadow-card)',
+        'button': 'var(--shadow-button)',
+      },
+      fontFamily: {
+        'dyslexic': ['Lexend', 'OpenDyslexic', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'base': '18px', // Minimum 18px for dyslexia-friendly reading
+        'lg': '20px',
+        'xl': '22px',
+        '2xl': '26px',
+        '3xl': '32px',
+        '4xl': '40px',
+        '5xl': '48px',
       },
       borderRadius: {
         lg: "var(--radius)",
